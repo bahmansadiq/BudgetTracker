@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="budgetTracker">
+<head>
+	<meta charset="UTF-8">
+	<title>Budget Tracker</title>
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<!-- endbower -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/app/style/styles.css">
+	<!-- endinject -->
+</head>
+
+<body class="ng-cloak" ng-controller="budgetCtrl">
+	<div class="container">
+
+		<div class="col-xs-12  jumbotron">
+			<h1> Budget Tracker</h1>	
+		</div>
+
+
+
+		<div class="col-xs-6">
+			<div class="panel panel-success">
+
+				<div class="panel-heading">
+					<p> Income entries</p>
+				</div>
+
+				<div class="panel-body ">
+					<div>
+						<label> Description</label>
+						<input type="text"  ng-model="addDescription" class="form-control">
+					</div>
+
+					<div class="">
+						<label> Amount</label>
+						<input type="number" ng-model="addIncome" class="form-control">
+					</div>
+					<div>
+
+						<button type="button" ng-click="incomeButton()"  class=" btn btn-success form-control glyphicon glyphicon-plus-sign">
+							Add income</button>
+
+						</div>
+						<div>
+
+							<table class="col-md-12">
+								<tr >
+									<th> Description</th>
+									<th> Amount</th>
+								</tr>
+								<tr ng-repeat="income in incomeList">
+									<td>{{income.description}}</td>
+									<td>{{income.amount}}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-xs-6">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<p>Expense entries</p>
+					</div>
+
+					<div class="panel-body ">
+						<div>
+							<label> Description</label>
+							<input type="text" ng-model="expenseDescription" class="form-control">
+						</div>
+						<div class=" ">
+							<label> Amount</label>
+							<input type="number" ng-model="addExpense" class="form-control">
+						</div>
+						<div>
+							<button type="button"  ng-click="expenseButton()" class=" btn btn-danger form-control glyphicon glyphicon-plus-sign">
+								Add Expense</button>
+							</div>
+
+							<div>	
+								<table class="col-md-12">
+									<tr >
+										<th> Description</th>
+										<th> Amount</th>
+									</tr>
+									<tr ng-repeat="exp in expenseList">
+										<td>{{exp.description}}</td>
+										<td >{{exp.amount}}</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div >
+
+					<div class="col-md-6 col-md-offset-3 ">
+						<div class="panel panel-info">
+							<div class="panel-heading ">
+								<p class="tex-center">Summary</p>
+							</div>
+
+							<div class="panel-body ">
+								<div class="col-md-6">
+									<label> Total Income</label>
+									<p> {{totalIncome}}</p>
+								</div>
+								<div class="col-md-6">
+									<label> Total Expense</label>
+									<p> {{totalExpense}}</p>
+								</div>
+								<div class="col-md-6 col-md-offset-3">
+
+									<label> Left after spending</label>	
+									<div class="col-md-8 col-md-offset-3">
+
+										<p >{{leftOver}}</p>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+	</div>
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<!-- endinject -->
+</body>
+</html>
